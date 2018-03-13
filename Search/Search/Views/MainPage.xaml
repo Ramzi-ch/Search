@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Search"
+             x:Class="Search.MainPage"
+            
+             Title="Search"
+             >
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="close" Icon="close.png"/>
+    </ContentPage.ToolbarItems>
+
+    <StackLayout Orientation="Vertical"  BackgroundColor="#80000000">
+        <StackLayout BackgroundColor="White" HeightRequest="100" Margin="20,20,20,0">
+            <Label Text="Search" TextColor="Black" Margin="10,10,0,0"/>
+            <SearchBar TextChanged="SearchBar_TextChanged"/>
+        </StackLayout>
+        
+        <StackLayout BackgroundColor="White" Orientation="Vertical" Margin="20,0,20,0">
+            <ListView x:Name="List1"  HasUnevenRows="True" SeparatorColor="White" Margin="20,20,0,0">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Margin="0,20,0,20">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="{Binding Image}" HeightRequest="75" WidthRequest="75"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Vertical" Margin="20,0,0,0" VerticalOptions="CenterAndExpand">
+                                    <Label Text="{Binding Name}" FontSize="15" TextColor="Black"/>
+                                    <Label Text="{Binding Type}" FontSize="13" TextColor="Gray"/>
+                                    <Label Text="{Binding Price}" FontSize="15" TextColor="Black"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+
+    </StackLayout>
+</ContentPage>
